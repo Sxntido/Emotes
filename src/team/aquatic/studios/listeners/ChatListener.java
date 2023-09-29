@@ -15,22 +15,24 @@ public class ChatListener implements Listener {
     public void onChat(AsyncPlayerChatEvent e) {
         Player p = e.getPlayer();
         String g = Emotes.getChatVault().getPrimaryGroup(p);
-        if (p.hasPermission("emotes.chat.color"))
-            e.setMessage(ChatColor.translateAlternateColorCodes('&', e.getMessage()));
-        String format = "";
-        if (Emotes.GetConfig().getConfigurationSection("chat.groups." + g) != null) {
-            format = Emotes.GetConfig().getString("chat.groups." + g);
-        } else {
-            format = Emotes.GetConfig().getString("chat.groups.default");
+        if (Emotes.GetConfig().getBoolean("modules.chat-format")) {
+            if (p.hasPermission("emotes.chat.color"))
+                e.setMessage(ChatColor.translateAlternateColorCodes('&', e.getMessage()));
+            String format = "";
+            if (Emotes.GetConfig().getConfigurationSection("chat.groups." + g) != null) {
+                format = Emotes.GetConfig().getString("chat.groups." + g);
+            } else {
+                format = Emotes.GetConfig().getString("chat.groups.default");
+            }
+            format = format.replace("{name}", p.getName());
+            format = format.replace("{displayname}", "%s");
+            format = replacePlaceholderAPI(p, format);
+            format = replaceVault(p, format);
+            format = ChatColor.translateAlternateColorCodes('&', format);
+            format = format.replace("%", "%%");
+            format = format.replace("{message}", "%2$s");
+            e.setFormat(format);
         }
-        format = format.replace("{name}", p.getName());
-        format = format.replace("{displayname}", "%s");
-        format = replacePlaceholderAPI(p, format);
-        format = replaceVault(p, format);
-        format = ChatColor.translateAlternateColorCodes('&', format);
-        format = format.replace("%", "%%");
-        format = format.replace("{message}", "%2$s");
-        e.setFormat(format);
     }
 
     public String replaceVault(Player p, String message) {
@@ -49,7 +51,7 @@ public class ChatListener implements Listener {
 
     public String replacePlaceholderAPI(Player p, String message) {
         String holders = message;
-        if (Emotes.GetConfig().getBoolean("chat.switch") && PlaceholderAPI.containsPlaceholders(holders))
+        if (Emotes.GetConfig().getBoolean("modules.chat-format") && PlaceholderAPI.containsPlaceholders(holders))
             holders = PlaceholderAPI.setPlaceholders(p, holders);
         return holders;
     }

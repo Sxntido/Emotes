@@ -24,7 +24,7 @@ public class EmoteList implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if (!(sender instanceof Player)) {
-            Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', ("&b&lEmotes &8» &cError this command cannot be executed in console.")));
+            Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', ("&b&lEmotes &7» &cError this command cannot be executed in console.")));
             return true;
         }
         Player p = (Player) sender;

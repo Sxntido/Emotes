@@ -1,0 +1,13 @@
+#                                                           Developed by Sxntido
+#                                                     (Aquatic Studios @ (C) 2019-2023)
+
+name: Emotes
+version: '1.0'
+authors:
+  - 'Sxntido'
+
+main: team.aquatic.studios.Emotes
+api-version: 1.13
+website: https://github.com/aquaticstudios
+
+description: 'All rights reserved by Aquatic Studios'

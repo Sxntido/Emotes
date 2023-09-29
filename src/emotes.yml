@@ -1,0 +1,5 @@
+emotes:
+  heart:
+    text: "<3"
+    emote: "&c❤"
+    permission: emotes.heart

@@ -12,7 +12,7 @@ import team.aquatic.studios.manager.Builder;
 public class Transform implements Listener {
 
     @EventHandler
-    public void onChat(AsyncPlayerChatEvent event) {
+    public void Emotes(AsyncPlayerChatEvent event) {
         String msg = event.getMessage();
         Player player = event.getPlayer();
         if (Emotes.GetConfig().getBoolean("modules.emotes")) {

@@ -6,7 +6,7 @@ chat:
   switch: true
   groups:
     default: "{prefix}{name} &7» &f{message}"
-    admin: "&4&lADMIN &f{name} &7» &f{message}"
+    admin: "&e+ {prefix}{name} &7» &f{message}"
 
 messages:
   reload: "%prefix% &aThe plugin just restarted successfully"
@@ -16,9 +16,11 @@ messages:
 
 emotes:
   list:
+    - "&7&m-------------------------------"
     - ""
     - "&b&lEmotes &fv1.0 &7| &fList"
     - ""
     - " &7- &b<3 &f- &c❤"
     - " &7- &b:shrug: &f- &e¯\\_(ツ)_/¯"
     - ""
+    - "&7&m-------------------------------"

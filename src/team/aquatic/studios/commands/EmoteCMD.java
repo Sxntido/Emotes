@@ -42,11 +42,9 @@ public class EmoteCMD implements CommandExecutor {
         }
 
         if (args[0].equalsIgnoreCase("list")) {
-            if (p.hasPermission("emotes.list") || p.hasPermission("emotes.admin")) {
-                p.performCommand("emotelist");
+            if (p.performCommand("emotelist")) {
             }
-            p.sendMessage(ChatColor.translateAlternateColorCodes('&', Emotes.GetConfig().getString("messages.rank_permission").replace("%prefix%", Emotes.GetConfig().getString("modules.prefix"))));
-            return false;
+            return true;
         }
 
         if (args[0].equalsIgnoreCase("reload")) {
@@ -55,11 +53,8 @@ public class EmoteCMD implements CommandExecutor {
                 p.sendMessage(ChatColor.translateAlternateColorCodes('&', Emotes.GetConfig().getString("messages.reload").replace("%prefix%", Emotes.GetConfig().getString("modules.prefix"))));
                 return true;
             }
-
             p.sendMessage(ChatColor.translateAlternateColorCodes('&', Emotes.GetConfig().getString("messages.nopermission").replace("%prefix%", Emotes.GetConfig().getString("modules.prefix"))));
-
         } else {
-
             p.sendMessage(ChatColor.translateAlternateColorCodes('&', Emotes.GetConfig().getString("messages.error").replace("%prefix%", Emotes.GetConfig().getString("modules.prefix"))));
         }
         return true;

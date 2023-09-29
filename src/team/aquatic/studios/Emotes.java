@@ -1,5 +1,6 @@
 package team.aquatic.studios;
 
+import org.bukkit.Bukkit;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginManager;
@@ -12,6 +13,7 @@ import net.milkbowl.vault.permission.Permission;
 
 import team.aquatic.studios.files.Config;
 import team.aquatic.studios.listeners.ChatListener;
+import team.aquatic.studios.tools.Utils;
 
 public class Emotes extends JavaPlugin {
 
@@ -24,6 +26,11 @@ public class Emotes extends JavaPlugin {
         return permissions;
     }
 
+    private static boolean PapiHook = false;
+
+    public static boolean IsPapiHooked() {
+        return PapiHook;
+    }
     public static Economy economy = null;
 
     public static boolean isPapiHook;
@@ -85,6 +92,7 @@ public class Emotes extends JavaPlugin {
         config = new Config("config");
 
         registerEvents();
+        GetHooks();
 
     }
 
@@ -96,5 +104,31 @@ public class Emotes extends JavaPlugin {
         PluginManager pm = getServer().getPluginManager();
         pm.registerEvents((Listener) new Transform(), (Plugin) this);
         pm.registerEvents((Listener) new ChatListener(), (Plugin) this);
+    }
+
+    public void GetHooks() {
+        if (Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null) {
+            if (Bukkit.getPluginManager().isPluginEnabled("PlaceholderAPI")) {
+                PapiHook = true;
+                Utils.getLoggs("&fPlugin &ePlaceholderAPI &fHooked successfully", true);
+            } else {
+                Utils.getLoggs("&fPlugin &ePlaceholderAPI &fis not hooked due to is disabled", true);
+            }
+        } else {
+            Utils.getLoggs("&fPlugin &ePlaceholderAPI &fis not hooked due to not found", true);
+        }
+        if (Bukkit.getPluginManager().getPlugin("Vault") != null) {
+            if (Bukkit.getPluginManager().isPluginEnabled("Vault")) {
+                Vault = true;
+                setupEconomy();
+                setupPermissions();
+                setupChat();
+                Utils.getLoggs("&fPlugin &eVault &fHooked successfully", true);
+            } else {
+                Utils.getLoggs("&fPlugin &eVault &fis not hooked due to is disabled", true);
+            }
+        } else {
+            Utils.getLoggs("&fPlugin &eVault &fis not hooked due to not found", true);
+        }
     }
 }

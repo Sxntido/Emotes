@@ -1,5 +1,9 @@
 emotes:
   heart:
-    text: "<3"
+    trigger: "<3"
     emote: "&c❤"
     permission: emotes.heart
+  two:
+    trigger: ":two:"
+    emote: "&e&l2"
+    permission: emotes.two

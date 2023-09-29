@@ -14,17 +14,9 @@ import java.util.List;
 
 public class EmoteCMD implements CommandExecutor {
 
-    public List<String> colorize(List<String> input) {
-        List<String> result = new ArrayList<>();
-        for (String string : input) {
-            result.add(ChatColor.translateAlternateColorCodes('&', string));
-        }
-        return result;
-    }
-
     public boolean onCommand(CommandSender sender, Command command, String Label, String[] args) {
         if (!(sender instanceof Player)) {
-            Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', ("&b&lAquafly &8» &cError this command cannot be executed in console.")));
+            Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', ("&b&lEmotes &8» &cError this command cannot be executed in console.")));
             return true;
         }
         Player p = (Player) sender;
@@ -51,10 +43,10 @@ public class EmoteCMD implements CommandExecutor {
 
         if (args[0].equalsIgnoreCase("list")) {
             if (p.hasPermission("emotes.list") || p.hasPermission("emotes.admin")) {
-                List<String> msg = colorize(Emotes.GetConfig().getStringList("emotes.list"));
-                for (String string : msg) p.sendMessage(string);
+                p.performCommand("emotelist");
             }
             p.sendMessage(ChatColor.translateAlternateColorCodes('&', Emotes.GetConfig().getString("messages.rank_permission").replace("%prefix%", Emotes.GetConfig().getString("modules.prefix"))));
+            return false;
         }
 
         if (args[0].equalsIgnoreCase("reload")) {
@@ -69,8 +61,7 @@ public class EmoteCMD implements CommandExecutor {
         } else {
 
             p.sendMessage(ChatColor.translateAlternateColorCodes('&', Emotes.GetConfig().getString("messages.error").replace("%prefix%", Emotes.GetConfig().getString("modules.prefix"))));
-
         }
-        return false;
+        return true;
     }
 }

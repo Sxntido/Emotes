@@ -15,3 +15,5 @@ description: 'All rights reserved by Aquatic Studios'
 commands:
   emotes:
     description: Run this command to get information
+  emotelist:
+    description: Command to see the entire list of emotes

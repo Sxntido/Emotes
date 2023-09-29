@@ -7,6 +7,7 @@ import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 import team.aquatic.studios.commands.EmoteCMD;
+import team.aquatic.studios.commands.EmoteList;
 import team.aquatic.studios.events.Transform;
 import net.milkbowl.vault.chat.Chat;
 import net.milkbowl.vault.economy.Economy;
@@ -110,6 +111,7 @@ public class Emotes extends JavaPlugin {
 
     public void registerCommands() {
         getCommand("emotes").setExecutor(new EmoteCMD());
+        getCommand("emotelist").setExecutor(new EmoteList());
     }
 
     public void GetHooks() {

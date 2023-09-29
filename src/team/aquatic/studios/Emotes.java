@@ -6,6 +6,7 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
+import team.aquatic.studios.commands.EmoteCMD;
 import team.aquatic.studios.events.Transform;
 import net.milkbowl.vault.chat.Chat;
 import net.milkbowl.vault.economy.Economy;
@@ -93,6 +94,7 @@ public class Emotes extends JavaPlugin {
 
         registerEvents();
         GetHooks();
+        registerCommands();
 
     }
 
@@ -104,6 +106,10 @@ public class Emotes extends JavaPlugin {
         PluginManager pm = getServer().getPluginManager();
         pm.registerEvents((Listener) new Transform(), (Plugin) this);
         pm.registerEvents((Listener) new ChatListener(), (Plugin) this);
+    }
+
+    public void registerCommands() {
+        getCommand("emotes").setExecutor(new EmoteCMD());
     }
 
     public void GetHooks() {

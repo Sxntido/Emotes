@@ -11,3 +11,7 @@ api-version: 1.13
 website: https://github.com/aquaticstudios
 
 description: 'All rights reserved by Aquatic Studios'
+
+commands:
+  emotes:
+    description: Run this command to get information

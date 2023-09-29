@@ -21,7 +21,7 @@ public class Utils {
 
     public static void getLoggs(String s, boolean prefix) {
         if (prefix) {
-            Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', "&b&lEmotes &8» " +s));
+            Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', "&b&lEmotes &7» " +s));
         } else if (!prefix) {
             Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', s));
         }

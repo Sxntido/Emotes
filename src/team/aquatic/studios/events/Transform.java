@@ -11,16 +11,10 @@ public class Transform implements Listener {
 
     @EventHandler
     public void PlayerAsyncChat(AsyncPlayerChatEvent e) {
-        if (e.getPlayer().hasPermission("emotes.all")) {
-            String name = Emotes.GetEmotes().toString();
-            String message = e.getMessage();
-            message = message.replace(Emotes.GetEmotes().getString("emotes."+ name +"text"), ChatColor.translateAlternateColorCodes('&', Emotes.GetEmotes().getString("emotes."+ name +".emote")));
-            e.setMessage(message);
-        }
-        String name = Emotes.GetEmotes().toString();
-        if (e.getPlayer().hasPermission(Emotes.GetEmotes().getString("emotes."+ name +"permission"))) {
-            String message = e.getMessage();
-            message = message.replace(Emotes.GetEmotes().getString("emotes."+ name +".text"), ChatColor.translateAlternateColorCodes('&', Emotes.GetEmotes().getString("emotes."+ name +".emote")));
+        String message = e.getMessage();
+        String name = Emotes.getInstance().getName();
+        if (e.getPlayer().hasPermission(Emotes.GetEmotes().getString("emotes."+name+".permission"))) {
+            message = message.replace(Emotes.GetEmotes().getString("emotes."+name+".text"), ChatColor.translateAlternateColorCodes('&', Emotes.GetEmotes().getString("emotes."+name+".emote")));
             e.setMessage(message);
         }
     }

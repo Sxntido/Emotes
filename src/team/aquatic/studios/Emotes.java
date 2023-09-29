@@ -112,8 +112,8 @@ public class Emotes extends JavaPlugin {
 
     public void registerCommands() {
         getCommand("emotes").setExecutor(new EmoteCMD());
-        getCommand("emotelist").setExecutor(new EmoteList());
         getCommand("emotes").setTabCompleter(new Tab());
+        getCommand("emotelist").setExecutor(new EmoteList());
     }
 
     public void GetHooks() {

@@ -12,7 +12,7 @@ import team.aquatic.studios.manager.Builder;
 public class Transform implements Listener {
 
     @EventHandler
-    public void Emotes(AsyncPlayerChatEvent event) {
+    public void onChat(AsyncPlayerChatEvent event) {
         String msg = event.getMessage();
         Player player = event.getPlayer();
         if (Emotes.GetConfig().getBoolean("modules.emotes")) {
@@ -27,7 +27,9 @@ public class Transform implements Listener {
                         event.setMessage(ChatColor.translateAlternateColorCodes('&', msg));
                         continue;
                     }
-                    event.setCancelled(true);
+                    if (msg.contains(trigger)) {
+                        event.setMessage(trigger);
+                    }
                 }
             }
         }

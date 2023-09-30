@@ -1,6 +1,5 @@
 modules:
   prefix: "&b&lEmotes &7»"
-  emotes: true
   chat-format: true
 
 chat:
@@ -8,18 +7,34 @@ chat:
     default: "{prefix}{name} &7» &f{message}"
     admin: "&e+ {prefix}{name} &7» &f{message}"
 
-messages:
-  reload: "%prefix% &aThe plugin just restarted successfully"
-  nopermission: "%prefix% &cYou no have permission to execute this command"
-  rank_permission: "%prefix% &cYou need &b[Aquatic] &crank to execute this command, purchase it at &ehttps://discord.gg/qqU3SVwDaT"
+display:
+  enabled:
+    switch: true
+    title: "&b&lEmotes"
+    subtitle: "&fEmotes have been &aActivated"
+    sound: LEVEL_UP:10:2
+  disabled:
+    switch: true
+    title: "&b&llEmotes"
+    subtitle: "&fEmotes have been &cDisabled"
+    sound: ANVIL_BREAK:10:2
 
 emotes:
   list:
     - "&7&m-------------------------------"
     - ""
-    - "&b&lEmotes &fv1.0 &7| &fList"
+    - "  &b&lEmotes &fv1.0 &7| &fList"
     - ""
     - " &7- &b<3 &f= &c❤"
     - " &7- &b:shrug: &f= &e¯\\_(ツ)_/¯"
     - ""
+    - " &fPowered by &b&lAquatic Studios"
+    - ""
     - "&7&m-------------------------------"
+
+messages:
+  reload: "%prefix% &aThe plugin just restarted successfully"
+  enabled: "%prefix% &aYou just activated chat emotes"
+  disabled: "%prefix% &cYou just disabled chat emotes"
+  no_permission: "%prefix% &cYou no have permission to execute this command"
+  rank_permission: "%prefix% &cYou need &b[Aquatic] &crank to execute this command, purchase it at &ehttps://discord.gg/qqU3SVwDaT"

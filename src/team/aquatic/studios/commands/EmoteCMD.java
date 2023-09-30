@@ -7,12 +7,14 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import team.aquatic.studios.Emotes;
-import team.aquatic.studios.tools.Utils;
+import team.aquatic.studios.tools.Sounds;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class EmoteCMD implements CommandExecutor {
+
+    private Emotes plugin = (Emotes) Emotes.getPlugin(Emotes.class);
+
     public boolean onCommand(CommandSender sender, Command command, String Label, String[] args) {
         if (!(sender instanceof Player)) {
             Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', ("&b&lEmotes &7» &cError this command cannot be executed in console.")));
@@ -37,11 +39,43 @@ public class EmoteCMD implements CommandExecutor {
                 p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&r"));
                 return true;
             }
-            p.sendMessage(ChatColor.translateAlternateColorCodes('&', Emotes.GetConfig().getString("messages.nopermission").replace("%prefix%", Emotes.GetConfig().getString("modules.prefix"))));
+            p.sendMessage(ChatColor.translateAlternateColorCodes('&', Emotes.GetConfig().getString("messages.no_permission").replace("%prefix%", Emotes.GetConfig().getString("modules.prefix"))));
         }
 
         if (args[0].equalsIgnoreCase("list")) {
             if (p.performCommand("emotelist")) {
+                return true;
+            }
+        }
+
+        if (args[0].equalsIgnoreCase("on")) {
+            if (p.hasPermission("emotes.switch") || p.hasPermission("emotes.admin")) {
+                if (this.plugin.status = true) {
+                    p.sendMessage(ChatColor.translateAlternateColorCodes('&', Emotes.GetConfig().getString("messages.enabled").replace("%prefix%", Emotes.GetConfig().getString("modules.prefix"))));
+                    if (Emotes.GetConfig().getBoolean("display.enabled.switch")) {
+                        p.sendTitle(ChatColor.translateAlternateColorCodes('&', Emotes.GetConfig().getString("display.enabled.title")), ChatColor.translateAlternateColorCodes('&', Emotes.GetConfig().getString("display.enabled.subtitle")));
+                        Sounds.APISounds(p, Emotes.GetConfig().getString("display.enabled.sound"));
+                        return true;
+                    }
+                }
+            } else {
+                p.sendMessage(ChatColor.translateAlternateColorCodes('&', Emotes.GetConfig().getString("messages.rank_permission").replace("%prefix%", Emotes.GetConfig().getString("modules.prefix"))));
+                return true;
+            }
+        }
+
+        if (args[0].equalsIgnoreCase("off")) {
+            if (p.hasPermission("emotes.switch") || p.hasPermission("emotes.admin")) {
+                if (this.plugin.status = true) {
+                    p.sendMessage(ChatColor.translateAlternateColorCodes('&', Emotes.GetConfig().getString("messages.disabled").replace("%prefix%", Emotes.GetConfig().getString("modules.prefix"))));
+                    if (Emotes.GetConfig().getBoolean("display.disabled.switch")) {
+                        p.sendTitle(ChatColor.translateAlternateColorCodes('&', Emotes.GetConfig().getString("display.disabled.title")), ChatColor.translateAlternateColorCodes('&', Emotes.GetConfig().getString("display.disabled.subtitle")));
+                        Sounds.APISounds(p, Emotes.GetConfig().getString("display.disabled.sound"));
+                        return true;
+                    }
+                }
+            } else {
+                p.sendMessage(ChatColor.translateAlternateColorCodes('&', Emotes.GetConfig().getString("messages.rank_permission").replace("%prefix%", Emotes.GetConfig().getString("modules.prefix"))));
                 return true;
             }
         }
@@ -52,7 +86,7 @@ public class EmoteCMD implements CommandExecutor {
                 p.sendMessage(ChatColor.translateAlternateColorCodes('&', Emotes.GetConfig().getString("messages.reload").replace("%prefix%", Emotes.GetConfig().getString("modules.prefix"))));
                 return true;
             }
-            p.sendMessage(ChatColor.translateAlternateColorCodes('&', Emotes.GetConfig().getString("messages.nopermission").replace("%prefix%", Emotes.GetConfig().getString("modules.prefix"))));
+            p.sendMessage(ChatColor.translateAlternateColorCodes('&', Emotes.GetConfig().getString("messages.no_permission").replace("%prefix%", Emotes.GetConfig().getString("modules.prefix"))));
         }
         return false;
     }

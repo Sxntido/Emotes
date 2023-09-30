@@ -36,6 +36,8 @@ public class EmoteCMD implements CommandExecutor {
                 p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&r"));
                 p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&b/emotes reload &7- &fCommand to reload the plugin"));
                 p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&b/emotes list &7- &fCommand to view the list of emotes"));
+                p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&b/emotes on &7- &fActivate chat emotes with this command"));
+                p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&b/emotes off &7- &fDisable chat emotes with this command"));
                 p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&r"));
                 return true;
             }

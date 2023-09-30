@@ -22,6 +22,8 @@ public class Tab implements TabCompleter {
                     this.arguments.add("help");
                     this.arguments.add("reload");
                     this.arguments.add("list");
+                    this.arguments.add("on");
+                    this.arguments.add("off");
                 }
                 List<String> result = new ArrayList<>();
                 if (args.length == 1) {

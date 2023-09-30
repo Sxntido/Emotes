@@ -11,3 +11,7 @@ emotes:
     trigger: ":aquatic:"
     emote: "&fPowered by &b&lAquatic Studios"
     permission: emotes.aquatic
+  uwu:
+    trigger: ":uwu:"
+    emote: "&dฅ^•ﻌ•^ฅ"
+    permission: emotes.uwu

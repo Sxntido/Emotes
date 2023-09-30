@@ -15,7 +15,7 @@ display:
     sound: LEVEL_UP:10:2
   disabled:
     switch: true
-    title: "&b&llEmotes"
+    title: "&b&lEmotes"
     subtitle: "&fEmotes have been &cDisabled"
     sound: ANVIL_BREAK:10:2
 
@@ -27,14 +27,15 @@ emotes:
     - ""
     - " &7- &b<3 &f= &c❤"
     - " &7- &b:shrug: &f= &e¯\\_(ツ)_/¯"
+    - " &7- &b:uwu: &f= &dฅ^•ﻌ•^ฅ"
     - ""
     - " &fPowered by &b&lAquatic Studios"
     - ""
     - "&7&m-------------------------------"
 
 messages:
-  reload: "%prefix% &aThe plugin just restarted successfully"
-  enabled: "%prefix% &aYou just activated chat emotes"
   disabled: "%prefix% &cYou just disabled chat emotes"
+  enabled: "%prefix% &aYou just activated chat emotes"
+  reload: "%prefix% &aThe plugin just restarted successfully"
   no_permission: "%prefix% &cYou no have permission to execute this command"
-  rank_permission: "%prefix% &cYou need &b[Aquatic] &crank to execute this command, purchase it at &ehttps://discord.gg/qqU3SVwDaT"
+  rank_permission: "%prefix% &cYou need &3[Aquatic] &crank to execute this command, purchase it at &ehttps://discord.gg/qqU3SVwDaT"

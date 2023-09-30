@@ -36,8 +36,8 @@ public class EmoteCMD implements CommandExecutor {
                 p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&r"));
                 p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&b/emotes reload &7- &fCommand to reload the plugin"));
                 p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&b/emotes list &7- &fCommand to view the list of emotes"));
-                p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&b/emotes on &7- &fActivate chat emotes with this command"));
                 p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&b/emotes off &7- &fDisable chat emotes with this command"));
+                p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&b/emotes on &7- &fActivate chat emotes with this command"));
                 p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&r"));
                 return true;
             }
@@ -68,13 +68,12 @@ public class EmoteCMD implements CommandExecutor {
 
         if (args[0].equalsIgnoreCase("off")) {
             if (p.hasPermission("emotes.switch") || p.hasPermission("emotes.admin")) {
-                if (this.plugin.status = true) {
-                    p.sendMessage(ChatColor.translateAlternateColorCodes('&', Emotes.GetConfig().getString("messages.disabled").replace("%prefix%", Emotes.GetConfig().getString("modules.prefix"))));
-                    if (Emotes.GetConfig().getBoolean("display.disabled.switch")) {
-                        p.sendTitle(ChatColor.translateAlternateColorCodes('&', Emotes.GetConfig().getString("display.disabled.title")), ChatColor.translateAlternateColorCodes('&', Emotes.GetConfig().getString("display.disabled.subtitle")));
-                        Sounds.APISounds(p, Emotes.GetConfig().getString("display.disabled.sound"));
-                        return true;
-                    }
+                p.sendMessage(ChatColor.translateAlternateColorCodes('&', Emotes.GetConfig().getString("messages.disabled").replace("%prefix%", Emotes.GetConfig().getString("modules.prefix"))));
+                if (Emotes.GetConfig().getBoolean("display.disabled.switch")) {
+                    p.sendTitle(ChatColor.translateAlternateColorCodes('&', Emotes.GetConfig().getString("display.disabled.title")), ChatColor.translateAlternateColorCodes('&', Emotes.GetConfig().getString("display.disabled.subtitle")));
+                    Sounds.APISounds(p, Emotes.GetConfig().getString("display.disabled.sound"));
+                    this.plugin.status = false;
+                    return true;
                 }
             } else {
                 p.sendMessage(ChatColor.translateAlternateColorCodes('&', Emotes.GetConfig().getString("messages.rank_permission").replace("%prefix%", Emotes.GetConfig().getString("modules.prefix"))));
@@ -85,6 +84,7 @@ public class EmoteCMD implements CommandExecutor {
         if (args[0].equalsIgnoreCase("reload")) {
             if (p.hasPermission("emotes.reload") || p.hasPermission("emotes.admin")) {
                 Emotes.GetConfig().Reload();
+                Emotes.GetEmotes().Reload();
                 p.sendMessage(ChatColor.translateAlternateColorCodes('&', Emotes.GetConfig().getString("messages.reload").replace("%prefix%", Emotes.GetConfig().getString("modules.prefix"))));
                 return true;
             }

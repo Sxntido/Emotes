@@ -10,24 +10,24 @@ import team.aquatic.studios.Emotes;
 import team.aquatic.studios.manager.Builder;
 
 public class Transform implements Listener {
-
+    private Emotes plugin = (Emotes)Emotes.getPlugin(Emotes.class);
     @EventHandler
     public void onChat(AsyncPlayerChatEvent event) {
-        String msg = event.getMessage();
+        String message = event.getMessage();
         Player player = event.getPlayer();
-        if (Emotes.GetConfig().getBoolean("modules.emotes")) {
-            ConfigurationSection msgCfg = Emotes.GetEmotes().getConfigurationSection("emotes");
-            for (String key : msgCfg.getKeys(false)) {
-                String trigger = Emotes.GetEmotes().getString("emotes." + key + ".trigger");
-                String emote = Emotes.GetEmotes().getString("emotes." + key + ".emote");
-                String permission = Emotes.GetEmotes().getString("emotes." + key + ".permission");
-                if (msg.contains(trigger)) {
+        if (this.plugin.status) {
+            ConfigurationSection msgconfig = Emotes.GetEmotes().getConfigurationSection("emotes");
+            for (String aquatic : msgconfig.getKeys(false)) {
+                String trigger = Emotes.GetEmotes().getString("emotes." + aquatic + ".trigger");
+                String emote = Emotes.GetEmotes().getString("emotes." + aquatic + ".emote");
+                String permission = Emotes.GetEmotes().getString("emotes." + aquatic + ".permission");
+                if (message.contains(trigger)) {
                     if (player.hasPermission(permission)) {
-                        msg = msg.replace(trigger, emote);
-                        event.setMessage(ChatColor.translateAlternateColorCodes('&', msg));
+                        message = message.replace(trigger, emote);
+                        event.setMessage(ChatColor.translateAlternateColorCodes('&', message));
                         continue;
                     }
-                    if (msg.contains(trigger)) {
+                    if (message.contains(trigger)) {
                         event.setMessage(trigger);
                     }
                 }

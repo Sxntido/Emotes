@@ -90,6 +90,14 @@ public class Emotes extends JavaPlugin {
         return config;
     }
 
+    private static Config data;
+
+    public static Config GetData() {
+        return data;
+    }
+
+    public boolean status = true;
+
     public void onEnable() {
         instance = this;
         emotes = new Config("emotes");

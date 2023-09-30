@@ -114,7 +114,7 @@ public class Emotes extends JavaPlugin {
         Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', ("&8")));
         Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', ("&fCreator: &aSxntido")));
         Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', ("&fStatus: &aEnabled")));
-        Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', ("&fVersion: &e1.0-BETA")));
+        Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', ("&fVersion: &e1.1-BETA")));
         Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', ("&8")));
         Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', ("&bEmotes &8» &fPowered by &bAquatic Studios")));
         Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', ("&8")));
@@ -128,7 +128,7 @@ public class Emotes extends JavaPlugin {
         Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', ("&8")));
         Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', ("&fCreator: &aSxntido")));
         Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', ("&fStatus: &cDisabled")));
-        Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', ("&fVersion: &e1.0-BETA")));
+        Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', ("&fVersion: &e1.1-BETA")));
         Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', ("&8")));
         Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', ("&bEmotes &8» &fPowered by &bAquatic Studios")));
         Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', ("&8")));

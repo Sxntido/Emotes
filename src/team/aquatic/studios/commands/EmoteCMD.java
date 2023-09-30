@@ -23,7 +23,7 @@ public class EmoteCMD implements CommandExecutor {
         Player p = (Player) sender;
         if (args.length == 0) {
             p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&r"));
-            p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&b&lEmotes &fversion 1.0 Powered by Aquatic Studios"));
+            p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&b&lEmotes &fversion 1.1 Powered by Aquatic Studios"));
             p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&r"));
             return true;
 
@@ -32,7 +32,7 @@ public class EmoteCMD implements CommandExecutor {
         if (args[0].equalsIgnoreCase("help")) {
             if (p.hasPermission("emotes.help") || p.hasPermission("emotes.admin")) {
                 p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&r"));
-                p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&b&lEmotes &fv1.0 &7| &fCommands"));
+                p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&b&lEmotes &fv1.1 &7| &fCommands"));
                 p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&r"));
                 p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&b/emotes reload &7- &fCommand to reload the plugin"));
                 p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&b/emotes list &7- &fCommand to view the list of emotes"));
